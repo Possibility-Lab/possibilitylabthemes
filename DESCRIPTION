@@ -4,8 +4,7 @@ Title: Possibility Lab's ggplot2 theme
 Version: 0.1.0
 Author: Ryan Hall
 Maintainer: Ryan Hall <ryan.hall@berkeley.edu>
-Description: Provides a custom theme for ggplot visualizations based on 
-Possibility Lab's colors and style guide. 
+Description: Provides a custom theme for ggplot visualizations based on Possibility Lab's colors and style guide. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

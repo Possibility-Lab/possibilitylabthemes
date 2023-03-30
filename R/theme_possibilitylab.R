@@ -4,11 +4,12 @@
 #' @export
 #'
 
-theme_possibilitylab <- function() {
+theme_possibilitylab <- function(base_size = 8, base_family = "sourcesanspro",
+                                 base_line_size = 0.5,
+                                 base_rect_size = 0.5,
+                                 base_color = "#000000") {
 
-  font <- "montserrat"
-  color_primary_b <- "#1f526f"
-  color_primary_g <- "#468484"
+
 
   ggplot2::theme_light() %+replace%
 
@@ -20,23 +21,26 @@ theme_possibilitylab <- function() {
 
       # text elements
       text = ggplot2::element_text(
-        family = font,
+        family = base_family,
+        size = base_size,
+        hjust = 0.5,
+        vjust = 0.5,
         face = "plain"),
 
       plot.title = ggplot2::element_text(
-        family = font,
-        size = 16,
-        color = color_primary_b,
+        family = base_family,
+        size = base_size * 1.25,
+        color = base_color,
         hjust = 0,
-        vjust = 2
+        vjust = 0
         ),
 
       plot.subtitle = ggplot2::element_text(
-        family = font,
-        size = 12,
-        color = color_primary_g,
+        family = base_family,
+        size = base_size * 1.15,
+        color = base_color,
         hjust = 0,
-        vjust = 2
+        vjust = 0
       )
     )
 
