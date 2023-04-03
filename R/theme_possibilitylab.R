@@ -1,13 +1,19 @@
-#' Apply Possibility Lab theme to ggplot visualizations
+#' Apply a Possibility Lab theme to ggplot visualizations
 #'
-#' @return a theme layer added to a ggplot visualization
+#' @param base_size,base_family base font size and family
+#' @param base_line_size base line width
+#' @param base_rect_size base rect width
+#'
+#'
+#' @import ggrepel
+#'
+#' @return a theme layer
 #' @export
 #'
 
 theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
                                  base_line_size = 1,
-                                 base_rect_size = 1,
-                                 base_color = "#000000") {
+                                 base_rect_size = 1) {
 
   half_line <- base_line_size / 2L
 
@@ -31,15 +37,15 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
 
       line = ggplot2::element_line(
         colour = "#000000",
-        size = base_line_size,
+        linewidth = base_line_size,
         linetype = 1L,
-        lineend = "butt"
+        lineend = "round"
         ),
 
       rect = ggplot2::element_rect(
         fill = "#ffffff",
         colour = "#000000",
-        size = base_rect_size,
+        linewidth = base_rect_size,
         linetype = 1L
       ),
 
@@ -76,12 +82,13 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
         size = base_size * 0.8,
         hjust = 0L,
         vjust = 0L,
-        margin = ggplot2::margin(t = half_line * 0.9)
+        margin = ggplot2::margin(t = half_line * 0.9, b = 5L, l = 10L)
       ),
 
       plot.caption.position = "plot",
 
-      plot.background = ggplot2::element_rect(fill = "#fff1e5"),
+      plot.background = ggplot2::element_rect(fill = "#ffffff",
+                                              colour = "#ffffff"),
 
       plot.margin = ggplot2::margin(
         t = half_line,
@@ -98,7 +105,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
       axis.text.y = ggplot2::element_text(hjust = 1),
       axis.text.x.top = NULL,
       axis.text.y.right = NULL,
-      axis.title = ggplot2::element_text(face = "plain",
+      axis.title = ggplot2::element_text(face = "italic",
                                          size = base_size),
       axis.title.x = ggplot2::element_text(margin = ggplot2::margin(t = 8L)),
       axis.title.y = ggplot2::element_text(angle = 90L,
@@ -133,7 +140,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
       legend.key.height = NULL,
       legend.key.width = NULL,
       legend.text = ggplot2::element_text(size = base_size * 1.12,
-                                          vjust = 1),
+                                          vjust = 0.5),
       legend.text.align = NULL,
       legend.title = ggplot2::element_blank(),
       legend.title.align = NULL,
@@ -148,7 +155,9 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
 
       # panel attributes
 
-      panel.background = ggplot2::element_rect(fill = "#fff1e5"),
+      panel.background = ggplot2::element_rect(fill = "#ffffff",
+                                               colour = "#ffffff",
+                                               linetype = 0),
       panel.border = ggplot2::element_blank(),
       panel.ontop = FALSE,
       panel.spacing = ggplot2::unit(6L, "pt"),
@@ -157,14 +166,16 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
       panel.grid = NULL,
       panel.grid.major = ggplot2::element_line(),
       panel.grid.major.x = ggplot2::element_blank(),
-      panel.grid.major.y = ggplot2::element_line(colour = "#dedddd"),
-      panel.grid.minor = ggplot2::element_line(colour = "#dedddd"),
+      panel.grid.major.y = ggplot2::element_line(colour = "#dedddd",
+                                                 linewidth = half_line),
+      panel.grid.minor = ggplot2::element_line(colour = "#dedddd",
+                                               linewidth = half_line * 0.9),
       panel.grid.minor.x = ggplot2::element_blank(),
       panel.grid.minor.y = ggplot2::element_blank(),
 
       # faceting attributes
 
-      strip.background = ggplot2::element_rect(fill = "#53626f",
+      strip.background = ggplot2::element_rect(fill = "#ffffff",
                                                colour = NA,
                                                size = 10L),
       strip.text = ggplot2::element_text(face = "bold",
