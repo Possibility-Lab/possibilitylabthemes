@@ -1,3 +1,8 @@
+#' Use Possibility Lab color palettes
+#'
+#' @param palette one of "categorical" or "sequential"
+#'
+#' @return Possibility Lab color palette
 use_possibililtylab_pal <- function(palette = "categorical") {
   pal_list <- palette_possibilitylab
   types <- pal_list[[palette]]
@@ -14,6 +19,11 @@ use_possibililtylab_pal <- function(palette = "categorical") {
   }
 }
 
+#' Discrete fill scale with Possibility Lab color palette
+#'
+#' @param ...
+#'
+#' @export
 scale_fill_discrete <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -23,6 +33,11 @@ scale_fill_discrete <- function(...) {
     )
 }
 
+#' Discrete color scale with Possibility Lab color palette
+#'
+#' @param ...
+#'
+#' @export
 scale_color_discrete <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "color",
@@ -32,6 +47,11 @@ scale_color_discrete <- function(...) {
   )
 }
 
+#' Discrete colour scale with Possibility Lab colour palette
+#'
+#' @param ...
+#'
+#' @export
 scale_colour_discrete <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -41,6 +61,11 @@ scale_colour_discrete <- function(...) {
   )
 }
 
+#' Ordinal fill scale with Possibility Lab color palette
+#'
+#' @param ...
+#'
+#' @export
 scale_fill_ordinal <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -50,6 +75,11 @@ scale_fill_ordinal <- function(...) {
   )
 }
 
+#' Ordinal color scale with Possibility Lab color palette
+#'
+#' @param ...
+#'
+#' @export
 scale_color_ordinal <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "color",
@@ -59,6 +89,11 @@ scale_color_ordinal <- function(...) {
   )
 }
 
+#' Ordinal colour scale with Possibility Lab colour palette
+#'
+#' @param ...
+#'
+#' @export
 scale_colour_ordinal <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -68,6 +103,16 @@ scale_colour_ordinal <- function(...) {
   )
 }
 
+#' Gradient color scale with Possibility Lab color palette
+#'
+#' @param ...
+#' @param colors
+#' @param values
+#' @param space
+#' @param na.value
+#' @param guide
+#'
+#' @export
 scale_color_gradientn <- function(...,
                                  colors = c("#4097c9", "#3181af", "#286a8f",
                                             "#1f526f", "#163b50", "#0d2330",
@@ -87,6 +132,16 @@ scale_color_gradientn <- function(...,
   )
 }
 
+#' Gradient colour scale with Possibility Lab colour palette
+#'
+#' @param ...
+#' @param colours
+#' @param values
+#' @param space
+#' @param na.value
+#' @param guide
+#'
+#' @export
 scale_colour_gradientn <- function(...,
                                   colours = c("#4097c9", "#3181af", "#286a8f",
                                              "#1f526f", "#163b50", "#0d2330",
@@ -106,6 +161,16 @@ scale_colour_gradientn <- function(...,
   )
 }
 
+#' Gradient fill scale with Possibility Lab color palette
+#'
+#' @param ...
+#' @param colors
+#' @param values
+#' @param space
+#' @param na.value
+#' @param guide
+#'
+#' @export
 scale_fill_gradientn <- function(...,
                                    colors = c("#4097c9", "#3181af", "#286a8f",
                                                "#1f526f", "#163b50", "#0d2330",

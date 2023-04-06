@@ -1,4 +1,8 @@
 #' Possibility Lab color palette list
+#'
+#' Various color palettes for applying Possibility Lab colors to visualizations
+#'
+#' @export
 
 palette_possibilitylab <- {
   palette <- list(

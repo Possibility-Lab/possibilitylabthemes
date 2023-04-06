@@ -1,4 +1,4 @@
-#' Apply a Possibility Lab theme to ggplot visualizations
+#' Apply a general Possibility Lab theme to ggplot visualizations
 #'
 #' @param base_size,base_family base font size and family
 #' @param base_line_size base line width
@@ -63,7 +63,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
 
       plot.title = ggplot2::element_text(
         face = "bold",
-        size = base_size * 1.41,
+        size = base_size * 1.12,
         hjust = 0L,
         vjust = 0L,
         margin = ggplot2::margin(b = 10L)
@@ -72,7 +72,8 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
       plot.title.position = "plot",
 
       plot.subtitle = ggplot2::element_text(
-        size = base_size * 1.12,
+        size = base_size * 1.0,
+        colour = "#474747",
         hjust = 0L,
         vjust = 0L,
         margin = ggplot2::margin(b = 10L)
@@ -80,6 +81,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
 
       plot.caption = element_text(
         size = base_size * 0.8,
+        colour = "#474747",
         hjust = 0L,
         vjust = 0L,
         margin = ggplot2::margin(t = half_line * 0.9, b = 5L, l = 10L)
@@ -105,11 +107,11 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
       axis.text.y = ggplot2::element_text(hjust = 1),
       axis.text.x.top = NULL,
       axis.text.y.right = NULL,
-      axis.title = ggplot2::element_text(face = "italic",
+      axis.title = ggplot2::element_text(face = "plain",
                                          size = base_size),
       axis.title.x = ggplot2::element_text(margin = ggplot2::margin(t = 8L)),
       axis.title.y = ggplot2::element_text(angle = 90L,
-                                           margin = ggplot2::margin(r = 4L)),
+                                           margin = ggplot2::margin(r = 8L)),
       axis.title.x.top = NULL,
       axis.title.y.right = NULL,
 
@@ -139,7 +141,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
       # legend.key.size = ggplot2::unit(10L, "pt"),
       legend.key.height = NULL,
       legend.key.width = NULL,
-      legend.text = ggplot2::element_text(size = base_size * 1.12,
+      legend.text = ggplot2::element_text(size = base_size * 1.0,
                                           vjust = 0.5),
       legend.text.align = NULL,
       legend.title = ggplot2::element_blank(),

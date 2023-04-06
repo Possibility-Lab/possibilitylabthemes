@@ -1,8 +1,34 @@
-set_possibilitylab_defaults <- function(color_mode = "categorical",
-                                        base_size = 12,
-                                        base_family = "sourcesanspro") {
+#' Set Possibility Lab theme as defaults
+#'
+#' @param type one of "default", "map"
+#' @param color_mode
+#' @param base_size
+#' @param base_family
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'
+possibility_defaults <- function(type = "default",
+                                 color_mode = "categorical",
+                                 base_size = 12,
+                                 base_family = "sourcesanspro") {
 
-  ggplot2::theme_set(theme_possibilitylab())
+  if(type == "default") {
+
+    ggplot2::theme_set(theme_possibilitylab())
+
+  } else if (type == "map") {
+
+    ggplot2::theme_set(theme_possibilitylab_map())
+
+  } else {
+
+    stop('Only "default" or "map" are accepted types at this time.')
+
+  }
+
 
   ggplot2::update_geom_defaults("text", list(family = base_family))
   ggplot2::update_geom_defaults("label", list(family = base_family))
