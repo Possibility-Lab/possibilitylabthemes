@@ -1,7 +1,6 @@
 #' Set Possibility Lab theme as defaults
 #'
-#' @param type one of "default", "map"
-#' @param color_mode
+#' @param type one of "default", "map", "likert"
 #' @param base_size
 #' @param base_family
 #'
@@ -11,7 +10,6 @@
 #' @examples
 #'
 possibility_defaults <- function(type = "default",
-                                 color_mode = "categorical",
                                  base_size = 12,
                                  base_family = "sourcesanspro") {
 
@@ -23,16 +21,20 @@ possibility_defaults <- function(type = "default",
 
     ggplot2::theme_set(theme_possibilitylab_map())
 
+  } else if (type == "likert") {
+
+    ggplot2::theme_set(theme_possibilitylab_likert())
+
   } else {
 
-    stop('Only "default" or "map" are accepted types at this time.')
+    stop('Only "default", "map", or "likert" are accepted types at this time.')
 
   }
 
 
   ggplot2::update_geom_defaults("text", list(family = base_family))
   ggplot2::update_geom_defaults("label", list(family = base_family))
-  # ggplot2::update_geom_defaults("text_repel", list(family = base_family))  ## need to import ggrepel
+  # ggplot2::update_geom_defaults("text_repel", list(family = base_family))
   # ggplot2::update_geom_defaults("label_repel", list(family = base_family))
 
   options(

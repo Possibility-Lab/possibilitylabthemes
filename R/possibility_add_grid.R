@@ -1,38 +1,65 @@
 #' Add missing major gridlines from default theme
 #'
-#' @param add_major adds major gridlines to the x axis
-#' @param add_minor adds minor gridlines to specified axes. One of "y" or "both"
+#' @param add_major adds major gridlines to specified axes. One of "x", "y", "both" or NULL
+#' @param add_minor adds minor gridlines to specified axes. One of "x", "y", "both" or NULL
 #'
-#' @return updated theme options for major and/or minor axes
+#' @return a theme layer with major and/or minor axes
 #' @export
 #'
 #' @examples
-add_grid <- function(add_major = TRUE, add_minor = "y") {
+possibility_add_grid <- function(add_major = "x", add_minor = NULL) {
 
-  if (add_major == TRUE) {
+  if (is.null(add_major)) {
 
-    ggplot2::theme(
+    majors <- NULL
+
+  } else if (add_major == "x") {
+
+    majors <- ggplot2::theme(
+      panel.grid.major.x = ggplot2::element_line(colour = "#dedddd")
+    )
+
+  } else if (add_major == "y") {
+
+    majors <- ggplot2::theme(
+      panel.grid.major.y = ggplot2::element_line(colour = "#dedddd")
+    )
+
+  } else if (add_major == "both") {
+
+    majors <- ggplot2::theme(
       panel.grid.major.x = ggplot2::element_line(colour = "#dedddd"),
-      ...
+      panel.grid.major.y = ggplot2::element_line(colour = "#dedddd")
     )
 
   }
 
-  if (add_minor == "y") {
+  if (is.null(add_minor)) {
 
-    ggplot2::theme(
-      panel.grid.minor.y = ggplot2::element_line(colour = "#dedddd"),
-      ...
+    minors <- NULL
+
+  } else if (add_minor == "y") {
+
+    minors <- ggplot2::theme(
+      panel.grid.minor.y = ggplot2::element_line(colour = "#dedddd")
     )
 
-  } else if ( add_minor == "both") {
+  } else if (add_minor == "x") {
 
-    ggplot2::theme(
+    minors <- ggplot2::theme(
+      panel.grid.minor.x = ggplot2::element_line(colour = "#dedddd")
+    )
+
+  } else if (add_minor == "both") {
+
+    minors <- ggplot2::theme(
       panel.grid.minor.x = ggplot2::element_line(colour = "#dedddd"),
-      panel.grid.minor.y = ggplot2::element_line(colour = "#dedddd"),
-      ...
+      panel.grid.minor.y = ggplot2::element_line(colour = "#dedddd")
     )
 
   }
+
+  gridlines <- majors + minors
+  return(gridlines)
 
 }

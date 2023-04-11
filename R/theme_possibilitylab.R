@@ -66,7 +66,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
         size = base_size * 1.12,
         hjust = 0L,
         vjust = 0L,
-        margin = ggplot2::margin(b = 10L)
+        margin = ggplot2::margin(b = 7L)
         ),
 
       plot.title.position = "plot",
@@ -76,7 +76,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
         colour = "#474747",
         hjust = 0L,
         vjust = 0L,
-        margin = ggplot2::margin(b = 10L)
+        margin = ggplot2::margin(b = 7L)
       ),
 
       plot.caption = element_text(
@@ -102,9 +102,9 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
       # axis attributes
 
       axis.text = ggplot2::element_text(size = base_size),
-      axis.text.x = ggplot2::element_text(vjust = 1,
-                                          margin = ggplot2::margin(t = 4L)),
-      axis.text.y = ggplot2::element_text(hjust = 1),
+      axis.text.x = ggplot2::element_text(vjust = 1),
+      axis.text.y = ggplot2::element_text(hjust = 1,
+                                          margin = ggplot2::margin(l = 4L)),
       axis.text.x.top = NULL,
       axis.text.y.right = NULL,
       axis.title = ggplot2::element_text(face = "plain",
