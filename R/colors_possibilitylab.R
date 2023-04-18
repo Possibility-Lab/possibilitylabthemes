@@ -18,11 +18,11 @@ colors_possibilitylab <- c(
 possibility_palettes <- list(
   likert = c("#1F526F", "#3279A2", "#ADB9C1", "#B9D3B6", "#468484"),
   discrete = c("#1F526F", "#468484", "#78AE94", "#CCCE84", "#584F29", "#53626F", "#B9D3B6", "#2A5050"),
-  sequential_blue = c(),
-  sequential_yellow = c(),
+  sequential_blue = c("#1F526F", "#3C647E", "#55768D", "#6D889D", "#859CAD", "#9DAFBD", "#B6C3CD"),
+  yellowblue = c("#CCCE84","#B3BC81","#9BAB7E","#82997B","#698778","#507575","#386472","#1F526F"),
   diverging = c("#584F29","#D8B365","#ADB9C1","#468484","#1F526F"),
-  politics = c(),
-  secondary = c()
+  politics = c("#D13F3F", "#53626F", "#239CE1"),
+  secondary = c("#584F29", "#53626F", "#B9D3B6")
 )
 
 possibility_palette <- function(name, n, type = c("discrete", "continuous")) {

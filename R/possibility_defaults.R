@@ -7,6 +7,8 @@
 #' @return
 #' @export
 #'
+#' @import ggrepel
+#'
 #' @examples
 #'
 possibility_defaults <- function(type = "default",
@@ -32,8 +34,8 @@ possibility_defaults <- function(type = "default",
   }
 
 
-  ggplot2::update_geom_defaults("text", list(family = base_family))
-  ggplot2::update_geom_defaults("label", list(family = base_family))
+  ggplot2::update_geom_defaults("text", list(family = base_family, size = 1 / 0.352777778))
+  ggplot2::update_geom_defaults("label", list(family = base_family, size = 1 / 0.352777778))
   # ggplot2::update_geom_defaults("text_repel", list(family = base_family))
   # ggplot2::update_geom_defaults("label_repel", list(family = base_family))
 

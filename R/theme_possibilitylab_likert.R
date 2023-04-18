@@ -10,9 +10,9 @@
 #' @export
 #'
 
-theme_possibilitylab_likert <- function(base_size = 12, base_family = "sourcesanspro",
-                                 base_line_size = 1,
-                                 base_rect_size = 1) {
+theme_possibilitylab_likert <- function(base_size = 8.5, base_family = "Source Sans Pro",
+                                 base_line_size = 0.5,
+                                 base_rect_size = 0.5) {
 
   half_line <- base_line_size / 2L
 
@@ -25,28 +25,39 @@ theme_possibilitylab_likert <- function(base_size = 12, base_family = "sourcesan
 
     # axis.ticks.x = ggplot2::element_line(),
     axis.title = ggplot2::element_blank(),
-    axis.text.x = ggplot2::element_text(hjust = 0.5,
-                                        margin = ggplot2::margin(t = 2L,
-                                                                 l = 4L)),
+    axis.title.y = ggplot2::element_blank(),
+    axis.title.x = ggplot2::element_blank(),
+
+    # axis.text.x = ggplot2::element_text(
+    #   # hjust = 0.5,
+    #   margin = ggplot2::margin(t = 2L,
+    #                            l = 0L)), ## set x to blank
 
     panel.grid = ggplot2::element_blank(),
 
-    legend.text = element_textbox(
-      width = unit(60, "pt"),
-      height = unit(18, "pt"),
+    legend.text = ggtext::element_textbox(
+      size = base_size * 0.8,
+      width = unit(base_size * 3, "pt"),
+      height = unit(base_size * 2, "pt"),
       halign = 0.5,
       valign = 0.5,
-      margin = ggplot2::margin(r = 2L)
+      margin = ggplot2::margin(t = 0, r = 2L, b = 0, l = 2L)
     ),
 
-    legend.margin = ggplot2::margin(t = 6L, r = 2L, b = 6L, l = 0L, "pt"),
+    legend.justification = c(1,0),
+
+
+    # legend.key.height = ggplot2::unit(5, "pt"), # base size, pt
+    # legend.key.width = ggplot2::unit(5, "pt"), # base size, pt
+
+    # legend.margin = ggplot2::margin(t = 6L, r = 30L, b = 6L, l = 0L, "pt"),
 
     plot.margin = ggplot2::margin(
-      t = half_line,
-      r = base_line_size * 24,
-      b = half_line,
-      l = base_line_size * 24
-    ),
+      t = 0,
+      r = 10L,
+      b = 0,
+      l = 2L
+    )
   )
 
   likert_theme

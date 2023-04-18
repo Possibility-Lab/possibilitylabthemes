@@ -11,13 +11,13 @@
 #' @export
 #'
 
-theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
-                                 base_line_size = 1,
-                                 base_rect_size = 1) {
+theme_possibilitylab <- function(base_size = 8.5, base_family = "Source Sans Pro",
+                                 base_line_size = 0.5,
+                                 base_rect_size = 0.5) {
 
   half_line <- base_line_size / 2L
 
-  ggplot2::theme_light() %+replace%
+  # ggplot2::theme_grey() %+replace%
 
     ggplot2::theme(
 
@@ -32,7 +32,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
         face = "plain",
         angle = 0,
         lineheight = 0.9,
-        margin = ggplot2::margin(),
+        margin = ggplot2::margin(t = 0, r = 0, b = 0, l = 0),
         debug = FALSE),
 
       line = ggplot2::element_line(
@@ -51,52 +51,46 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
 
       # Plot attributes
 
-      plot.tag = ggplot2::element_text(
-        size = base_size * 1.25,
-        hjust = 0L,
-        vjust = 0L,
-        face = "bold",
-        margin = ggplot2::margin(b = 10L)
-      ),
-
-      plot.tag.position = "topleft",
+      plot.tag = ggplot2::element_blank(),
 
       plot.title = ggplot2::element_text(
         face = "bold",
-        size = base_size * 1.12,
-        hjust = 0L,
-        vjust = 0L,
-        margin = ggplot2::margin(b = 7L)
+        size = base_size * 12 / 8.5,
+        hjust = 0,
+        vjust = 0,
+        margin = ggplot2::margin(t = 2L, b = 6L)
         ),
 
       plot.title.position = "plot",
 
       plot.subtitle = ggplot2::element_text(
-        size = base_size * 1.0,
+        size = base_size * 9.5 / 8.5,
         colour = "#474747",
-        hjust = 0L,
-        vjust = 0L,
-        margin = ggplot2::margin(b = 7L)
+        hjust = 0,
+        vjust = 0,
+        margin = ggplot2::margin(b = 4L)
       ),
 
       plot.caption = element_text(
-        size = base_size * 0.8,
+        size = base_size * 7 / 8.5,
         colour = "#474747",
-        hjust = 0L,
-        vjust = 0L,
-        margin = ggplot2::margin(t = half_line * 0.9, b = 5L, l = 10L)
+        hjust = 0,
+        vjust = 0,
+        margin = ggplot2::margin(t = 2L, b = 2L)
       ),
 
       plot.caption.position = "plot",
 
       plot.background = ggplot2::element_rect(fill = "#ffffff",
-                                              colour = "#ffffff"),
+                                              colour = "#ffffff",
+                                              size = 1
+                                              ),
 
       plot.margin = ggplot2::margin(
-        t = half_line,
-        r = base_line_size * 24,
-        b = half_line,
-        l = half_line
+        t = base_line_size,
+        r = base_line_size,
+        b = base_line_size * base_size,
+        l = base_line_size
       ),
 
       # axis attributes
@@ -126,36 +120,35 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
                                            linetype = NULL,
                                            lineend = NULL),
       axis.line = ggplot2::element_line(),
-      axis.line.x = ggplot2::element_line(colour = "#53626f",
-                                          size = NULL,
-                                          linetype = NULL,
-                                          lineend = NULL),
+      axis.line.x = ggplot2::element_line(colour = "#53626f"),
       axis.line.y = ggplot2::element_blank(),
 
-      # legend attributes
-      legend.background = ggplot2::element_blank(),
+      ## legend attributes
+      legend.background = ggplot2::element_blank(), # blank
       legend.spacing = ggplot2::unit(20L, "pt"),
       legend.spacing.x = ggplot2::unit(4L, "pt"),
       legend.spacing.y = NULL,
-      legend.key = ggplot2::element_blank(),
-      # legend.key.size = ggplot2::unit(10L, "pt"),
+
+      legend.key = ggplot2::element_blank(), # blank
+      legend.key.size = ggplot2::unit(10L, "pt"),
       legend.key.height = NULL,
       legend.key.width = NULL,
-      legend.text = ggplot2::element_text(size = base_size * 1.0,
+
+      legend.text = ggplot2::element_text(size = base_size * 9.5 / 8.5,
                                           vjust = 0.5),
       legend.text.align = NULL,
       legend.title = ggplot2::element_blank(),
-      legend.title.align = NULL,
+      legend.title.align = NULL, # 0
       legend.position = "bottom",
       legend.direction = "horizontal",
       legend.justification = NULL,
-      legend.margin = ggplot2::margin(t = 6L, r = 0L, b = 6L, l = 0L, "pt"),
+      legend.margin = ggplot2::margin(t = 2L, r = 0L, b = 2L, l = 0L, "pt"),
       legend.box = "horizontal",
       legend.box.margin = NULL,
-      legend.box.background = NULL,
+      legend.box.background = element_blank(), # NULL
       legend.box.spacing = NULL,
 
-      # panel attributes
+      ## panel attributes
 
       panel.background = ggplot2::element_rect(fill = "#ffffff",
                                                colour = "#ffffff",
@@ -181,7 +174,7 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
                                                colour = NA,
                                                size = 10L),
       strip.text = ggplot2::element_text(face = "bold",
-                                         size = base_size * 1.12,
+                                         size = base_size * 9.5 / 8.5,
                                          margin = ggplot2::margin(t = 0L, r = 0L, b = 0L, l = 0L)),
       strip.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 4.5, b = 4.5)),
       strip.text.y = ggplot2::element_text(angle = -90L,
@@ -194,10 +187,6 @@ theme_possibilitylab <- function(base_size = 12, base_family = "sourcesanspro",
 
       # create a complete format
       complete = TRUE
-
-
-
-
 
     ) ## closes theme
 
