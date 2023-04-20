@@ -33,7 +33,7 @@ devtools::install_github("Possibility-Lab/possibilitylabthemes")
 
 You can set the Possibility Lab theme as the default for an R session. 
 
-```{r example}
+```{r example, echo=FALSE}
 library(tidyverse)
 library(possibilitylabthemes)
 
@@ -42,7 +42,7 @@ possibility_defaults()
 
 You can specify certain visualization types for more a more tailored theme.
 
-```{r cars}
+```{r cars, echo=F}
 possibility_defaults("map")
 ```
 
@@ -72,4 +72,4 @@ Possibility Lab uses the Source Sans Pro font. Help with installing and
 testing fonts will be added soon. 
 
 ## Citations
-Thanks for the [urbnthemes](https://github.com/UrbanInstitute/urbnthemes) package for inspiration and examples. 
+Thanks to the [urbnthemes](https://github.com/UrbanInstitute/urbnthemes) package for inspiration and examples. 
