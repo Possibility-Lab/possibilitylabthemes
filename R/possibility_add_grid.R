@@ -6,7 +6,6 @@
 #' @return a theme layer with major and/or minor axes
 #' @export
 #'
-#' @examples
 possibility_add_grid <- function(add_major = "x", add_minor = NULL) {
 
   if (is.null(add_major)) {

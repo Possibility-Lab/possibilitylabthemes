@@ -68,7 +68,7 @@ theme_possibilitylab <- function(base_size = 8.5, base_family = "Source Sans Pro
         colour = "#474747",
         hjust = 0,
         vjust = 0,
-        margin = ggplot2::margin(b = 4L)
+        margin = ggplot2::margin(b = 10L)
       ),
 
       plot.caption = element_text(
@@ -88,8 +88,8 @@ theme_possibilitylab <- function(base_size = 8.5, base_family = "Source Sans Pro
 
       plot.margin = ggplot2::margin(
         t = base_line_size,
-        r = base_line_size,
-        b = base_line_size * base_size,
+        r = base_line_size * base_size,
+        b = base_line_size,
         l = base_line_size
       ),
 

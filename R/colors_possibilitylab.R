@@ -25,6 +25,15 @@ possibility_palettes <- list(
   secondary = c("#584F29", "#53626F", "#B9D3B6")
 )
 
+#' Get a color palette from Possibility Lab's palettes
+#'
+#' @param name the name of the palette
+#' @param n number of colors required, up to a max
+#' @param type discrete or continuous
+#'
+#' @return an object of class "palette"
+#' @export
+#'
 possibility_palette <- function(name, n, type = c("discrete", "continuous")) {
   type <- match.arg(type)
 

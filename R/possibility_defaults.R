@@ -1,15 +1,14 @@
 #' Set Possibility Lab theme as defaults
 #'
 #' @param type one of "default", "map", "likert"
-#' @param base_size
-#' @param base_family
+#' @param base_size base font size
+#' @param base_family base font family
 #'
-#' @return
+#' @return sets the default ggplot2 theme to the Possibility Lab theme
 #' @export
 #'
-#' @import ggrepel
+#' @importFrom ggrepel geom_text_repel geom_label_repel
 #'
-#' @examples
 #'
 possibility_defaults <- function(type = "default",
                                  base_size = 12,
@@ -34,10 +33,10 @@ possibility_defaults <- function(type = "default",
   }
 
 
-  ggplot2::update_geom_defaults("text", list(family = base_family, size = 1 / 0.352777778))
-  ggplot2::update_geom_defaults("label", list(family = base_family, size = 1 / 0.352777778))
-  # ggplot2::update_geom_defaults("text_repel", list(family = base_family))
-  # ggplot2::update_geom_defaults("label_repel", list(family = base_family))
+  ggplot2::update_geom_defaults("text", list(family = base_family, size = (1 / 0.352777778) * 0.8))
+  ggplot2::update_geom_defaults("label", list(family = base_family, size = (1 / 0.352777778) * 0.8))
+  ggplot2::update_geom_defaults("text_repel", list(family = base_family, size = (1 / 0.352777778) * 0.8))
+  ggplot2::update_geom_defaults("label_repel", list(family = base_family, size = (1 / 0.352777778) * 0.8))
 
   options(
     ggplot2.continuous.colour = "gradient",

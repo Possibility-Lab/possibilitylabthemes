@@ -21,7 +21,7 @@ use_possibililtylab_pal <- function(palette = "categorical") {
 
 #' Discrete fill scale with Possibility Lab color palette
 #'
-#' @param ...
+#' @param ... other arguments passed to scale_fill_discrete
 #'
 #' @export
 scale_fill_discrete <- function(...) {
@@ -35,7 +35,7 @@ scale_fill_discrete <- function(...) {
 
 #' Discrete color scale with Possibility Lab color palette
 #'
-#' @param ...
+#' @param ... other arguments passed to scale_color_discrete
 #'
 #' @export
 scale_color_discrete <- function(...) {
@@ -49,7 +49,7 @@ scale_color_discrete <- function(...) {
 
 #' Discrete colour scale with Possibility Lab colour palette
 #'
-#' @param ...
+#' @param ... other arguments passed to scale_colour_discrete
 #'
 #' @export
 scale_colour_discrete <- function(...) {
@@ -63,7 +63,7 @@ scale_colour_discrete <- function(...) {
 
 #' Ordinal fill scale with Possibility Lab color palette
 #'
-#' @param ...
+#' @param ... other arguments passed to scale_fill_ordinal
 #'
 #' @export
 scale_fill_ordinal <- function(...) {
@@ -77,7 +77,7 @@ scale_fill_ordinal <- function(...) {
 
 #' Ordinal color scale with Possibility Lab color palette
 #'
-#' @param ...
+#' @param ... other arguments passed to scale_color_ordinal
 #'
 #' @export
 scale_color_ordinal <- function(...) {
@@ -91,7 +91,7 @@ scale_color_ordinal <- function(...) {
 
 #' Ordinal colour scale with Possibility Lab colour palette
 #'
-#' @param ...
+#' @param ... other arguments passed to scale_colour_ordinal
 #'
 #' @export
 scale_colour_ordinal <- function(...) {
@@ -105,12 +105,12 @@ scale_colour_ordinal <- function(...) {
 
 #' Gradient color scale with Possibility Lab color palette
 #'
-#' @param ...
-#' @param colors
-#' @param values
-#' @param space
-#' @param na.value
-#' @param guide
+#' @param ... other arguments passed to scale_color_gradientn
+#' @param colors colors to use
+#' @param values NuLL
+#' @param space must be "Lab"
+#' @param na.value sets NA values to grey by default
+#' @param guide uses the "colourbar" guide for gradient legends
 #'
 #' @export
 scale_color_gradientn <- function(...,
@@ -134,12 +134,12 @@ scale_color_gradientn <- function(...,
 
 #' Gradient colour scale with Possibility Lab colour palette
 #'
-#' @param ...
-#' @param colours
-#' @param values
-#' @param space
-#' @param na.value
-#' @param guide
+#' @param ... other arguments passed to scale_colour_gradientn
+#' @param colours colours to use
+#' @param values NuLL
+#' @param space must be "Lab"
+#' @param na.value sets NA values to grey by default
+#' @param guide uses the "colourbar" guide for gradient legends
 #'
 #' @export
 scale_colour_gradientn <- function(...,
@@ -163,12 +163,12 @@ scale_colour_gradientn <- function(...,
 
 #' Gradient fill scale with Possibility Lab color palette
 #'
-#' @param ...
-#' @param colors
-#' @param values
-#' @param space
-#' @param na.value
-#' @param guide
+#' @param ... other arguments passed to scale_fill_gradientn
+#' @param colors colors to use
+#' @param values NuLL
+#' @param space must be "Lab"
+#' @param na.value sets NA values to grey by default
+#' @param guide uses the "colourbar" guide for gradient legends
 #'
 #' @export
 scale_fill_gradientn <- function(...,

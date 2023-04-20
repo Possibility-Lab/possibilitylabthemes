@@ -4,7 +4,7 @@
 #' @param base_line_size base line width
 #' @param base_rect_size base rect width
 #'
-#' @importFrom ggtext, element_textbox
+#' @import ggtext
 #'
 #' @return a theme layer for Likert style visualizations
 #' @export
@@ -23,15 +23,9 @@ theme_possibilitylab_likert <- function(base_size = 8.5, base_family = "Source S
 
   likert_theme <- likert_theme + ggplot2::theme(
 
-    # axis.ticks.x = ggplot2::element_line(),
     axis.title = ggplot2::element_blank(),
     axis.title.y = ggplot2::element_blank(),
     axis.title.x = ggplot2::element_blank(),
-
-    # axis.text.x = ggplot2::element_text(
-    #   # hjust = 0.5,
-    #   margin = ggplot2::margin(t = 2L,
-    #                            l = 0L)), ## set x to blank
 
     panel.grid = ggplot2::element_blank(),
 
@@ -44,7 +38,7 @@ theme_possibilitylab_likert <- function(base_size = 8.5, base_family = "Source S
       margin = ggplot2::margin(t = 0, r = 2L, b = 0, l = 2L)
     ),
 
-    legend.justification = c(1,0),
+    legend.justification = c(0.5,0),
 
 
     # legend.key.height = ggplot2::unit(5, "pt"), # base size, pt

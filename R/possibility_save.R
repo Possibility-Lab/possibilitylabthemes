@@ -1,16 +1,15 @@
 #' Save a plot with Possibility Lab theme and export settings
 #'
-#' @param x plot object to save. Defaults to \code{last_plot()}
 #' @param file Destination filepath
+#' @param x plot object to save. Defaults to \code{last_plot()}
 #' @param preset_size One of "small", "medium", or "large".
 #' @param orientation One of "horizontal" (the default) or "vertical"
 #'
 #' @return a saved plot
 #' @export
 #'
-#' @import ragg, ggplot
+#' @import ragg
 #'
-#' @examples
 possibility_save <- function(file,
                              x = ggplot2::last_plot(),
                              preset_size = c("small", "medium", "large"),
