@@ -9,7 +9,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
 )
 ```
 
@@ -33,7 +36,7 @@ devtools::install_github("Possibility-Lab/possibilitylabthemes")
 
 You can set the Possibility Lab theme as the default for an R session. 
 
-```{r example, echo=FALSE}
+```{r example, echo=FALSE, }
 library(tidyverse)
 library(possibilitylabthemes)
 
