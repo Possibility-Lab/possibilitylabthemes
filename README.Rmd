@@ -25,7 +25,8 @@ possibilitylabthemes provides a custom ggplot2 theme with Possibility Lab color 
 
 ## Installation
 
-You can install the development version of possibilitylabthemes from [GitHub](https://github.com/) with:
+possibilitylabthemes is still in development, but you can 
+install the development version of possibilitylabthemes from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -36,28 +37,41 @@ devtools::install_github("Possibility-Lab/possibilitylabthemes")
 
 You can set the Possibility Lab theme as the default for an R session. 
 
-```{r example, echo=FALSE, }
+```{r defaults, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(possibilitylabthemes)
+library(extrafont)
+extrafont::loadfonts(device = "win")
 
+library(possibilitylabthemes)
 possibility_defaults()
 ```
 
-You can specify certain visualization types for more a more tailored theme.
+```{r eu_df, include=FALSE}
+dv <- lubridate::date_decimal(time(EuStockMarkets)[1:nrow(EuStockMarkets)])
 
-```{r cars, echo=F}
-possibility_defaults("map")
+df <- datasets::EuStockMarkets %>%
+  as.data.frame() %>%
+  mutate(time = dv) %>% 
+  pivot_longer(DAX:FTSE,
+               names_to = "index",
+               values_to = "price")
 ```
 
 
-Set the Possibility Lab theme as the default, then plot with ggplot as normal. 
+```{r eu_stocks}
+ggplot(df) +
+  geom_line(aes(time, price, color = index)) +
+  labs(title = "Daily Closing Prices of Major European Stock Indices, 1991-1998")
+```
+
+
 To use color palettes other than the default, you can use 
 `scale_color_manual(values = possibility_palette("discrete"))`, for example. 
-Palettes available can be returned by `possibility_palettes`.
+Palettes available can be returned by `possibility_palettes`. 
 
-```{r pressure, echo = FALSE}
-possibility_defaults()
+When you wish to add more major or minor gridlines, use `possibility_add_grid()`.
 
+```{r orange}
 ggplot(datasets::Orange) +
   geom_line(aes(age, circumference, color = Tree), alpha = 0.8) +
   geom_point(aes(age, circumference, color = Tree)) +
@@ -70,9 +84,79 @@ ggplot(datasets::Orange) +
        subtitle = "from the datasets package")
 ```
 
-## Font
+```{r starwars}
+ggplot(filter(starwars, species %in% c("Human", "Droid", "Wookiee") &
+                !is.na(height))) +
+  geom_point(aes(height, reorder(name, height), color = species)) +
+  scale_color_manual(values = possibility_palette("secondary")) +
+  labs(title = "Heights of various Star Wars characters")
+```
+
+## Maps
+You can set the default theme to a "map" style.
+
+```{r berkeley_map, message=F, warning=F, echo=T}
+possibility_defaults("map")
+
+berk <- sf::st_read(
+  "https://data.cityofberkeley.info/api/geospatial/6is2-y2ia?method=export&format=GeoJSON")
+
+blvds <- sf::st_read(
+  "https://data.cityofberkeley.info/api/geospatial/fgw9-98ic?method=export&format=GeoJSON") %>% 
+  mutate(type = "Bicycle Boulevard") %>% 
+  select(type, geometry)
+
+trails <- sf::st_read(
+  "https://data.cityofberkeley.info/api/geospatial/yepa-z7vf?accessType=DOWNLOAD&method=export&format=GeoJSON"
+  ) %>% 
+  mutate(type = "Path") %>% 
+  select(type, geometry)
+
+streets <- sf::st_read(
+  "https://data.cityofberkeley.info/api/geospatial/hqnk-qfhq?method=export&format=GeoJSON")
+
+paths <- streets %>% filter(street_typ %in% c("PATH", "TRAIL")) %>% 
+  mutate(type = "Path") %>% 
+  select(type, geometry)
+
+routes <- rbind(blvds, trails, paths)
+
+
+ggplot(data = sf::st_intersection(
+         filter(streets, !(street_typ %in% c("PATH", "TRAIL"))),
+         berk)
+       ) +
+  geom_sf(color = "#d6d6d6") +
+  geom_sf(data = routes, aes(color = type)) +
+  labs(title = "Getting around Berkeley on named paths and bicycle boulevards")
+
+```
+
+
+
+## Saving plots
+
+Use `possibility_save()` to save plots as png files. Preset sizes - "small", "medium", 
+or "large" - will save your plot at predetermined dimensions and scale all fonts and graphic
+elements accordingly. Choose an orientation - "horizontal" or "vertical" - depending 
+on your chart type. `possibility_save()` uses `ragg::agg_png` to save as a png file, 
+which is the most suitable file format for including graphics in word documents and 
+presentations.
+
+```{r save, eval=FALSE}
+
+possibility_save("save_destination_filepath.png",
+                 x = ggplot2::last_plot(),
+                 preset_size = "medium",
+                 orientation = "vertical",  ## default is "horizontal"
+                 dpi = 300) 
+
+```
+
+
+## Font: Source Sans Pro
 Possibility Lab uses the Source Sans Pro font. Help with installing and 
 testing fonts will be added soon. 
 
 ## Citations
-Thanks to the [urbnthemes](https://github.com/UrbanInstitute/urbnthemes) package for inspiration and examples. 
+Thanks and credit to the [urbnthemes](https://github.com/UrbanInstitute/urbnthemes) package for inspiration and examples. 

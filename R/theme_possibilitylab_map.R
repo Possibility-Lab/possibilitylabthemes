@@ -36,7 +36,7 @@ theme_possibilitylab_map <- function(base_size = 8.5, base_family = "Source Sans
     legend.margin = ggplot2::margin(t = 4L, r = 0L, b = 4L, l = 0L, "pt"),
 
     legend.text = ggplot2::element_text(size = ggplot2::unit(base_size * 1.0, "pt"),
-                                        vjust = 0,
+                                        vjust = 1,
                                         margin = ggplot2::margin(
                                           t=ggplot2::unit(1L, "pt"),
                                           b=ggplot2::unit(0L, "pt"))
