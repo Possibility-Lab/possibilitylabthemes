@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%",
-  echo = FALSE,
+  echo = TRUE,
   message = FALSE,
   warning = FALSE
 )
@@ -71,56 +71,50 @@ Palettes available can be returned by `possibility_palettes`.
 
 When you wish to add more major or minor gridlines, use `possibility_add_grid()`.
 
-```{r orange}
-ggplot(datasets::Orange) +
-  geom_line(aes(age, circumference, color = Tree), alpha = 0.8) +
-  geom_point(aes(age, circumference, color = Tree)) +
-  
-  scale_color_manual(values = possibility_palette("discrete")) +
-  
-  possibility_add_grid(add_minor = "both") +
-  
-  labs(title = "Orange Tree Growth",
-       subtitle = "from the datasets package")
-```
-
 ```{r starwars}
 ggplot(filter(starwars, species %in% c("Human", "Droid", "Wookiee") &
                 !is.na(height))) +
   geom_point(aes(height, reorder(name, height), color = species)) +
   scale_color_manual(values = possibility_palette("secondary")) +
-  labs(title = "Heights of various Star Wars characters")
+  possibility_add_grid(add_minor = "x") +
+  labs(title = "Heights of various Star Wars characters",
+       y = "character")
 ```
 
 ## Maps
 You can set the default theme to a "map" style.
 
-```{r berkeley_map, message=F, warning=F, echo=T}
-possibility_defaults("map")
-
+```{r berkeley_data, echo=F, message=F, warning=F}
 berk <- sf::st_read(
-  "https://data.cityofberkeley.info/api/geospatial/6is2-y2ia?method=export&format=GeoJSON")
+  "https://data.cityofberkeley.info/api/geospatial/6is2-y2ia?method=export&format=GeoJSON",
+  quiet = T)
 
 blvds <- sf::st_read(
-  "https://data.cityofberkeley.info/api/geospatial/fgw9-98ic?method=export&format=GeoJSON") %>% 
+  "https://data.cityofberkeley.info/api/geospatial/fgw9-98ic?method=export&format=GeoJSON",
+  quiet = T) %>% 
   mutate(type = "Bicycle Boulevard") %>% 
   select(type, geometry)
 
 trails <- sf::st_read(
-  "https://data.cityofberkeley.info/api/geospatial/yepa-z7vf?accessType=DOWNLOAD&method=export&format=GeoJSON"
-  ) %>% 
+  "https://data.cityofberkeley.info/api/geospatial/yepa-z7vf?accessType=DOWNLOAD&method=export&format=GeoJSON",
+  quiet = T) %>% 
   mutate(type = "Path") %>% 
   select(type, geometry)
 
 streets <- sf::st_read(
-  "https://data.cityofberkeley.info/api/geospatial/hqnk-qfhq?method=export&format=GeoJSON")
+  "https://data.cityofberkeley.info/api/geospatial/hqnk-qfhq?method=export&format=GeoJSON",
+  quiet = T)
 
 paths <- streets %>% filter(street_typ %in% c("PATH", "TRAIL")) %>% 
   mutate(type = "Path") %>% 
   select(type, geometry)
 
 routes <- rbind(blvds, trails, paths)
+```
 
+
+```{r berkeley_map, message=F, warning=F, echo=T, dpi = 300}
+possibility_defaults("map")
 
 ggplot(data = sf::st_intersection(
          filter(streets, !(street_typ %in% c("PATH", "TRAIL"))),
@@ -139,7 +133,9 @@ ggplot(data = sf::st_intersection(
 Use `possibility_save()` to save plots as png files. Preset sizes - "small", "medium", 
 or "large" - will save your plot at predetermined dimensions and scale all fonts and graphic
 elements accordingly. Choose an orientation - "horizontal" or "vertical" - depending 
-on your chart type. `possibility_save()` uses `ragg::agg_png` to save as a png file, 
+on your chart type. 
+
+`possibility_save()` uses `ragg::agg_png` to save as a png file, 
 which is the most suitable file format for including graphics in word documents and 
 presentations.
 
