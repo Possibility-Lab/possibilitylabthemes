@@ -2,6 +2,8 @@
 #'
 #' @param palette one of "categorical" or "sequential"
 #'
+#' @importFrom scales gradient_n_pal
+#'
 #' @return Possibility Lab color palette
 use_possibililtylab_pal <- function(palette = "categorical") {
   pal_list <- palette_possibilitylab
@@ -9,9 +11,9 @@ use_possibililtylab_pal <- function(palette = "categorical") {
 
   function(n) {
 
-    if (n > 7) {
+    if (n > 8) {
 
-      stop(paste("Error: possibilitylabthemes allows for 7 colors."))
+      stop(paste("Error: possibilitylabthemes allows for 8 colors."))
 
     }
 
@@ -114,13 +116,13 @@ scale_colour_ordinal <- function(...) {
 #'
 #' @export
 scale_color_gradientn <- function(...,
-                                 colors = c("#4097c9", "#3181af", "#286a8f",
-                                            "#1f526f", "#163b50", "#0d2330",
-                                            "#040c10"),
-                                 values = NULL,
-                                 space = "Lab",
-                                 na.value = "grey50",
-                                 guide = "colourbar") {
+                                  colors = c("#4097c9", "#3181af", "#286a8f",
+                                             "#265b7a", "#1f526f", "#163b50",
+                                             "#0d2330", "#040c10"),
+                                  values = NULL,
+                                  space = "Lab",
+                                  na.value = "grey50",
+                                  guide = "colourbar") {
 
   ggplot2::continuous_scale(
     aesthetics = "color",
@@ -143,13 +145,13 @@ scale_color_gradientn <- function(...,
 #'
 #' @export
 scale_colour_gradientn <- function(...,
-                                  colours = c("#4097c9", "#3181af", "#286a8f",
-                                             "#1f526f", "#163b50", "#0d2330",
-                                             "#040c10"),
-                                  values = NULL,
-                                  space = "Lab",
-                                  na.value = "grey50",
-                                  guide = "colourbar") {
+                                   colours = c("#4097c9", "#3181af", "#286a8f",
+                                               "#265b7a", "#1f526f", "#163b50",
+                                               "#0d2330", "#040c10"),
+                                   values = NULL,
+                                   space = "Lab",
+                                   na.value = "grey50",
+                                   guide = "colourbar") {
 
   ggplot2::continuous_scale(
     aesthetics = "colour",
@@ -172,13 +174,13 @@ scale_colour_gradientn <- function(...,
 #'
 #' @export
 scale_fill_gradientn <- function(...,
-                                   colors = c("#4097c9", "#3181af", "#286a8f",
-                                               "#1f526f", "#163b50", "#0d2330",
-                                               "#040c10"),
-                                   values = NULL,
-                                   space = "Lab",
-                                   na.value = "grey50",
-                                   guide = "colourbar") {
+                                 colors = c("#4097c9", "#3181af", "#286a8f",
+                                            "#265b7a", "#1f526f", "#163b50",
+                                            "#0d2330", "#040c10"),
+                                 values = NULL,
+                                 space = "Lab",
+                                 na.value = "grey50",
+                                 guide = "colourbar") {
 
   ggplot2::continuous_scale(
     aesthetics = "fill",

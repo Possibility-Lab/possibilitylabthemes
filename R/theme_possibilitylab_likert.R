@@ -31,8 +31,8 @@ theme_possibilitylab_likert <- function(base_size = 8.5, base_family = "Source S
 
     legend.text = ggtext::element_textbox(
       size = base_size * 0.8,
-      width = unit(base_size * 3, "pt"),
-      height = unit(base_size * 2, "pt"),
+      width = ggplot2::unit(base_size * 3, "pt"),
+      height = ggplot2::unit(base_size * 2, "pt"),
       halign = 0.5,
       valign = 0.5,
       margin = ggplot2::margin(t = 0, r = 2L, b = 0, l = 2L)

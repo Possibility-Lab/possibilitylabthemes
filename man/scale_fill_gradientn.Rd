@@ -6,7 +6,8 @@
 \usage{
 scale_fill_gradientn(
   ...,
-  colors = c("#4097c9", "#3181af", "#286a8f", "#1f526f", "#163b50", "#0d2330", "#040c10"),
+  colors = c("#4097c9", "#3181af", "#286a8f", "#265b7a", "#1f526f", "#163b50", "#0d2330",
+    "#040c10"),
   values = NULL,
   space = "Lab",
   na.value = "grey50",

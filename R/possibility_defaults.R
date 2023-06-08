@@ -7,7 +7,7 @@
 #' @return sets the default ggplot2 theme to the Possibility Lab theme
 #' @export
 #'
-#' @importFrom ggrepel geom_text_repel geom_label_repel
+#' @import ggrepel
 #'
 #'
 possibility_defaults <- function(type = "default",

@@ -20,6 +20,8 @@ possibility_save(
 \item{preset_size}{One of "small", "medium", or "large".}
 
 \item{orientation}{One of "horizontal" (the default) or "vertical"}
+
+\item{dpi}{Resolution to save at, default is 300}
 }
 \value{
 a saved plot

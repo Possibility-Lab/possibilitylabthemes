@@ -4,11 +4,13 @@
 #' @param x plot object to save. Defaults to \code{last_plot()}
 #' @param preset_size One of "small", "medium", or "large".
 #' @param orientation One of "horizontal" (the default) or "vertical"
+#' @param dpi Resolution to save at, default is 300
 #'
 #' @return a saved plot
 #' @export
 #'
 #' @import ragg
+#' @importFrom grDevices dev.off
 #'
 possibility_save <- function(file,
                              x = ggplot2::last_plot(),
@@ -46,7 +48,7 @@ possibility_save <- function(file,
 
   plot(x)
 
-  invisible(dev.off())
+  invisible(grDevices::dev.off())
 
 
 }

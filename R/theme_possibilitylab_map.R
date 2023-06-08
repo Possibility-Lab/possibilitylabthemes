@@ -4,9 +4,6 @@
 #' @param base_line_size base line width
 #' @param base_rect_size base rect width
 #'
-#'
-#' @import ggrepel
-#'
 #' @return a theme layer for maps
 #' @export
 #'
@@ -46,7 +43,7 @@ theme_possibilitylab_map <- function(base_size = 8.5, base_family = "Source Sans
     legend.spacing.x = ggplot2::unit(0, "pt"),
     legend.spacing.y = ggplot2::unit(0, "pt"),
 
-    legend.key.size = unit(2, "pt"),
+    legend.key.size = ggplot2::unit(2, "pt"),
     legend.key.height = ggplot2::unit(24 * 0.33, "pt"),
     legend.key.width = ggplot2::unit(24, "pt")
   )

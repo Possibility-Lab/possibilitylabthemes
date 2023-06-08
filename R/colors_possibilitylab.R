@@ -1,6 +1,6 @@
 #' Possibility Lab named color list
 #'
-#' Vectors of hex codes for colors to be used in visualizations
+#' Vector of hex codes for colors to be used in visualizations
 #'
 #' @export
 
@@ -14,7 +14,11 @@ colors_possibilitylab <- c(
   `sather gate` = "#b9d3b6"
 )
 
-
+#' Possibility Lab named palette list
+#'
+#' List of palettes to be used in visualizations
+#'
+#' @export
 possibility_palettes <- list(
   likert = c("#1F526F", "#3279A2", "#ADB9C1", "#B9D3B6", "#468484"),
   discrete = c("#1F526F", "#468484", "#78AE94", "#CCCE84", "#584F29", "#53626F", "#B9D3B6", "#2A5050"),

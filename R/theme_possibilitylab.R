@@ -4,9 +4,6 @@
 #' @param base_line_size base line width
 #' @param base_rect_size base rect width
 #'
-#'
-#' @import ggrepel
-#'
 #' @return a theme layer
 #' @export
 #'
@@ -55,7 +52,7 @@ theme_possibilitylab <- function(base_size = 8.5, base_family = "Source Sans Pro
 
       plot.title = ggplot2::element_text(
         face = "bold",
-        size = base_size * 12 / 8.5,
+        size = base_size * 11 / 8.5,
         hjust = 0,
         vjust = 0,
         margin = ggplot2::margin(t = 2L, b = 6L)
@@ -71,7 +68,7 @@ theme_possibilitylab <- function(base_size = 8.5, base_family = "Source Sans Pro
         margin = ggplot2::margin(b = 10L)
       ),
 
-      plot.caption = element_text(
+      plot.caption = ggplot2::element_text(
         size = base_size * 7 / 8.5,
         colour = "#474747",
         hjust = 0,
@@ -120,7 +117,7 @@ theme_possibilitylab <- function(base_size = 8.5, base_family = "Source Sans Pro
                                            linetype = NULL,
                                            lineend = NULL),
       axis.line = ggplot2::element_line(),
-      axis.line.x = ggplot2::element_line(colour = "#53626f"),
+      axis.line.x = ggplot2::element_blank(),
       axis.line.y = ggplot2::element_blank(),
 
       ## legend attributes
@@ -145,7 +142,7 @@ theme_possibilitylab <- function(base_size = 8.5, base_family = "Source Sans Pro
       legend.margin = ggplot2::margin(t = 2L, r = 0L, b = 2L, l = 0L, "pt"),
       legend.box = "horizontal",
       legend.box.margin = NULL,
-      legend.box.background = element_blank(), # NULL
+      legend.box.background = ggplot2::element_blank(), # NULL
       legend.box.spacing = NULL,
 
       ## panel attributes

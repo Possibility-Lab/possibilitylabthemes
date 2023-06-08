@@ -11,6 +11,6 @@ An object of class \code{character} of length 7.
 colors_possibilitylab
 }
 \description{
-Vectors of hex codes for colors to be used in visualizations
+Vector of hex codes for colors to be used in visualizations
 }
 \keyword{datasets}
